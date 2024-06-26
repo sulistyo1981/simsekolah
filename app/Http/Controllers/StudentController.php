@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\students;
+use App\Models\jurusan;
 use Illuminate\Support\Facades\Log;
 use function Sentry\captureMessage;
 
@@ -20,7 +21,8 @@ class StudentController extends Controller
 
     public function create()
     {
-        return view ('students.create');
+        $data['jurusan'] = jurusan::all();
+        return view ('students.create',$data);
     }
 
     public function store(Request $request)
@@ -32,6 +34,7 @@ class StudentController extends Controller
         $students->nis = $request->nis;
         $students->name = $request->name;
         $students->tanggal = $request->tanggal;
+        $students->jurusan_id = $request->jurusan_id;
         $students->save();
         return redirect ('students')->with('message',"Data Atas Nama {$students->name} Berhasil Ditambahkan");
     }
