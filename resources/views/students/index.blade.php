@@ -16,6 +16,7 @@
             <th style="text-align:center;">Nomor</th>
             <th style="text-align:center;">NIS</th>
             <th style="text-align:center;">Nama</th>
+            <th style="text-align:center;">Jurusan</th>
             <th style="text-align:center;">Tanggal Lahir</th>
             <th colspan="2" width="40" style="text-align:center;">Action</th>
         </tr>
@@ -24,6 +25,7 @@
             <td style="text-align:center;">{{ $loop->iteration}}</td>
             <td style="text-align:center;">{{ $student->nis}}</td>
             <td style="text-align:center;">{{ $student->name}}</td>
+            <td style="text-align:center;">{{ $student->jurusan->nama_jurusan}}</td>
             <td style="text-align:center;">{{ $student->tanggal}}</td>
             <td style="text-align:center;">
                 <a href="/students/{{$student->id}}/edit" class="btn btn-warning">Ubah</a>

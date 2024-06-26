@@ -10,4 +10,9 @@ class students extends Model
     use HasFactory;
     protected $table = 'students';
     protected $fillable=['nis','name','tanggal'];
+
+    public function jurusan()
+    {
+        return $this->belongsTo(jurusan::class);
+    }
 }
